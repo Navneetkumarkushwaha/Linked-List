@@ -1,0 +1,29 @@
+class Solution:
+    def reverse(self,head):
+        curr = head
+        prev = None
+        while curr:
+            temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = temp
+        return prev
+    def addOne(self,head):
+        head = self.reverse(head)
+        temp = head
+        carry = 1
+        
+        while temp:
+            total = temp.data + carry
+            temp.data = total%10
+            carry = total // 10
+            prev = temp
+            temp = temp.next
+        
+        if carry:
+            prev.next = Node(carry)
+            prev = prev.next
+            
+        return self.reverse(head)
+Time Complexity: O(N).
+Auxiliary Space: O(1).
