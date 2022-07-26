@@ -1,0 +1,17 @@
+################
+step-1 :-detect loop
+step-2 : if exists then slow ko slow.next kar ke ek baar poora loop chala do jaha mil jai slow and fast waha se length return kar do
+
+slow = head
+fast = head
+
+while fast and fast.next:
+  slow = slow.next
+  fast = fast.next.next
+  if fast == slow:
+    slow = slow.next
+    cnt = 1
+    while slow!=fast:
+      slow = slow.next
+      cnt += 1
+    return cnt
